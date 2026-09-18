@@ -37,6 +37,7 @@
       margin: 20px auto 0;
       overflow: hidden;
       background: #fff;
+      border-radius: 0 0 24px 24px;
   }
 
   .hero__logo {
@@ -302,7 +303,8 @@
   /*3*/
 
   .steps {
-      margin: 80px 0 0;
+      width: min(1920px, 100%);
+      margin: 80px auto 0;
       position: relative;
       overflow: hidden;
       padding: 68px 30px 72px;
@@ -509,6 +511,7 @@
       .steps {
           padding: 35px 20px 30px;
           margin: 60px 0 60px;
+          border-radius: 0;
       }
 
       .steps__header {
@@ -593,7 +596,6 @@
 
 
   @media (max-width: 380px) {
-
       .steps {
           padding-left: 15px;
           padding-right: 15px;
@@ -619,9 +621,9 @@
 
   /*footer*/
   .footer {
-      width: 100%;
-      padding: 100px 24px 70px;
-
+      width: min(1920px, 100%);
+      padding: 100px 0 70px;
+      margin: 0 auto;
   }
 
   .footer__section {
@@ -710,7 +712,7 @@
 
   @media (max-width: 767px) {
       .footer {
-          padding: 16px 14px 18px;
+          padding: 16px 0 18px;
           border-radius: 14px;
       }
 
@@ -737,8 +739,8 @@
       }
 
       .footer__badge {
-            min-width: 30px;
-            height: 36px;
+          min-width: 30px;
+          height: 36px;
       }
 
       .footer__text {
