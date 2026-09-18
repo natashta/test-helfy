@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const track = slider.querySelector('.steps-slider__track');
   const slides = slider.querySelectorAll('.step-card');
 
-  const prevButton = slider.querySelector('.steps-slider__arrow--prev');
-  const nextButton = slider.querySelector('.steps-slider__arrow--next');
+  const prevButton = slider.querySelector('.slider__arrow--prev');
+  const nextButton = slider.querySelector('.slider__arrow--next');
 
-  const dots = document.querySelectorAll('.steps-slider__dot');
+  const dots = document.querySelectorAll('.slider__dot');
 
   let currentSlide = 0;
 
@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     track.style.transform =
       `translateX(-${currentSlide * slideWidth}px)`;
 
-    // dots
     dots.forEach((dot, index) => {
       dot.classList.toggle(
         'is-active',
@@ -40,7 +39,6 @@ document.addEventListener('DOMContentLoaded', () => {
       );
     });
 
-    // arrows
     prevButton.disabled = currentSlide === 0;
     nextButton.disabled = currentSlide === slides.length - 1;
   }
@@ -57,17 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
     updateSlider();
   }
 
-  // NEXT
   nextButton.addEventListener('click', () => {
     goToSlide(currentSlide + 1);
   });
 
-  // PREV
   prevButton.addEventListener('click', () => {
     goToSlide(currentSlide - 1);
   });
 
-  // DOTS
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
       goToSlide(index);
@@ -96,24 +91,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const difference = touchStartX - touchEndX;
 
-      // Минимальное расстояние свайпа
       if (Math.abs(difference) < 50) return;
 
       if (difference > 0) {
-        // swipe left
         goToSlide(currentSlide + 1);
       } else {
-        // swipe right
         goToSlide(currentSlide - 1);
       }
     },
     { passive: true }
   );
 
-  // При изменении размера окна
   window.addEventListener('resize', updateSlider);
-
-  // Первоначальное состояние
   updateSlider();
 
 });
